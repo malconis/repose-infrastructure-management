@@ -6,3 +6,6 @@ rm -f /tmp/epel-release-5-4.noarch.rpm
 
 sudo yum install -y puppet
 sudo yum install -y git
+
+cd /etc/puppet
+git clone https://github.com/rackerlabs/repose-infrastructure-management.git modules
