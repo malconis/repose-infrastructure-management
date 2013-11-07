@@ -120,55 +120,123 @@ class jenkins_master {
         }
     }
 
-    plugin {'http://updates.jenkins-ci.org/download/plugins/build-pipeline-plugin/1.3.3/build-pipeline-plugin.hpi':
+    #Build Pipeline
+    plugin {'http://updates.jenkins-ci.org/download/plugins/build-pipeline-plugin/1.4.2/build-pipeline-plugin.hpi':
         file    => 'build-pipeline-plugin.hpi',
     }
 
-    plugin {'http://updates.jenkins-ci.org/download/plugins/dashboard-view/2.5/dashboard-view.hpi':
+    #Copy Artifact
+    plugin { 'http://updates.jenkins-ci.org/download/plugins/copyartifact/1.28/copyartifact.hpi':
+        file => 'copyartifact.hpi'
+    }
+
+    #Dashboard View
+    plugin {'http://updates.jenkins-ci.org/download/plugins/dashboard-view/2.9.2/dashboard-view.hpi':
         file    => 'dashboard-view.hpi',
     }
 
-    plugin {'http://updates.jenkins-ci.org/download/plugins/git/1.3.0/git.hpi':
-        file    => 'git.hpi',
-    }
-
-    plugin {'http://updates.jenkins-ci.org/download/plugins/git-client/1.0.5/git-client.hpi':
-        file    => 'git-client.hpi',
-    }
-
-    plugin {'http://updates.jenkins-ci.org/download/plugins/parameterized-trigger/2.17/parameterized-trigger.hpi':
-        file    => 'parameterized-trigger.hpi',
-    }
-
-    plugin {'http://updates.jenkins-ci.org/download/plugins/multiple-scms/0.2/multiple-scms.hpi':
-        file    => 'multiple-scms.hpi',
-    }
-
-    plugin {'http://updates.jenkins-ci.org/download/plugins/token-macro/1.6/token-macro.hpi':
-        file    => 'token-macro.hpi',
-    }
-
-    plugin {'http://updates.jenkins-ci.org/download/plugins/groovy/1.13/groovy.hpi':
-        file    => 'groovy.hpi',
-    }
-
-    plugin {'http://updates.jenkins-ci.org/download/plugins/veracode-scanner/1.1/veracode-scanner.hpi':
-        file    => 'veracode-scanner.hpi',
-    }
-
+    #Github Api
     plugin {'http://updates.jenkins-ci.org/download/plugins/github-api/1.42/github-api.hpi':
         file    => 'github-api.hpi',
     }
 
+    #Github
     plugin {'http://updates.jenkins-ci.org/download/plugins/github/1.6/github.hpi':
         file    => 'github.hpi',
     }
 
+    #Github Pull Request Builder
     plugin {'http://updates.jenkins-ci.org/download/plugins/ghprb/1.8/ghprb.hpi':
         file    => 'ghprb.hpi',
     }
 
+    #HTML Publisher
+    plugin {'http://updates.jenkins-ci.org/download/plugins/htmlpublisher/1.2/htmlpublisher.hpi':
+        file => 'htmlpublisher.hpi'
+    }
+
+    #Hudson Groovy Builder
+    plugin {'http://updates.jenkins-ci.org/download/plugins/groovy/1.14/groovy.hpi':
+        file    => 'groovy.hpi',
+    }
+
+    #Jenkins Email Extension
+    plugin {'http://updates.jenkins-ci.org/download/plugins/email-ext/2.36/email-ext.hpi':
+        file => 'email-ext.hpi'
+    }
+
+    #Jenkins Git Client
+    plugin {'http://updates.jenkins-ci.org/download/plugins/git-client/1.4.6/git-client.hpi':
+        file    => 'git-client.hpi',
+    }
+
+    #Jenkins Git
+    plugin {'http://updates.jenkins-ci.org/download/plugins/git/2.0/git.hpi':
+        file    => 'git.hpi',
+    }
+
+    #Jenkins Gradle
     plugin {'http://updates.jenkins-ci.org/download/plugins/gradle/1.23/gradle.hpi':
         file    => 'gradle.hpi',
+    }
+
+    #Jenkins JaCoCO
+    plugin {'http://updates.jenkins-ci.org/download/plugins/jacoco/1.0.13/jacoco.hpi':
+        file => 'jacoco.hpi'
+    }
+
+    #Jenkins jQuery
+    plugin {'http://updates.jenkins-ci.org/download/plugins/jquery/1.7.2-1/jquery.hpi':
+        file => 'jquery.hpi'
+    }
+
+    #Jenkins Maven Release
+    plugin {'http://updates.jenkins-ci.org/download/plugins/m2release/0.12.0/m2release.hpi':
+        file => 'm2release.hpi'
+    }
+
+    #Jenkins Multiple SCM
+    plugin {'http://updates.jenkins-ci.org/download/plugins/multiple-scms/0.2/multiple-scms.hpi':
+        file    => 'multiple-scms.hpi',
+    }
+
+    #Jenkins Paramterized Trigger
+    plugin {'http://updates.jenkins-ci.org/download/plugins/parameterized-trigger/2.17/parameterized-trigger.hpi':
+        file    => 'parameterized-trigger.hpi',
+    }
+
+    #Jenkins SSH
+    plugin {'http://updates.jenkins-ci.org/download/plugins/ssh/2.3/ssh.hpi':
+        file => 'ssh.hpi'
+    }
+
+    #Jenkins Workspace Cleanup
+    plugin {'http://updates.jenkins-ci.org/download/plugins/ws-cleanup/0.19/ws-cleanup.hpi':
+        file => 'ws-cleanup.hpi'
+    }
+
+    #Publish over SSH
+    plugin {'http://updates.jenkins-ci.org/download/plugins/publish-over-ssh/1.10/publish-over-ssh.hpi':
+        file => 'publish-over-ssh.hpi'
+    }
+
+    #SCM Api
+    plugin {'http://updates.jenkins-ci.org/download/plugins/scm-api/0.2/scm-api.hpi':
+        file => 'scm-api.hpi'
+    }
+
+    #SCM Sync Configuration
+    plugin {'http://updates.jenkins-ci.org/download/plugins/scm-sync-configuration/0.0.7.3/scm-sync-configuration.hpi':
+        file => 'scm-sync-configuration.hpi'
+    }
+
+    #Token Macro
+    plugin {'http://updates.jenkins-ci.org/download/plugins/token-macro/1.9/token-macro.hpi':
+        file    => 'token-macro.hpi',
+    }
+
+    #veracode-scanner
+    plugin {'http://updates.jenkins-ci.org/download/plugins/veracode-scanner/1.4/veracode-scanner.hpi':
+        file    => 'veracode-scanner.hpi',
     }
 }
