@@ -33,6 +33,10 @@ class jenkins_master {
         require     => Exec['rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key'],
     }
 
+    package { "rpm-build":
+        ensure => "4.4.2.3-34",
+    }
+
     group {'jenkins':
         ensure => present,
     }
