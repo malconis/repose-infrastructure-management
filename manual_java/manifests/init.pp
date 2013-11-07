@@ -10,17 +10,6 @@ class manual_java ($version = '1.7.0_06', $stripped_down = false) {
     exploded_archive_dir => "jdk$version",
   }
 
-  $crypto_directory = $version ? {
-    /1\.6.*/ => 'jce',
-    /1\.7.*/ => 'UnlimitedJCEPolicy',
-  }
-
-  file { "/opt/jdk$version/jre/lib/security/local_policy.jar":
-    ensure  => present,
-    source  => "puppet:///binaries/$crypto_directory/local_policy.jar",
-    require => Common_utils::Download_and_extract["'http://dev-hudson1.sat.intensive.int:8071/nexus/service/local/artifact/maven/redirect?r=thirdparty&g=com.oracle&a=jdk&v=$file_version&e=tar.gz&c=linux-x64'"],
-  }
-
   file {'/opt/java':
     ensure => link,
     target => "/opt/jdk$version",
