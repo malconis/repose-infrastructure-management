@@ -29,7 +29,7 @@ class jenkins_master {
     }
 
     package { "jenkins":
-        ensure      => '1.536-1.1',
+        ensure      => '1.538-1.1',
         require     => Exec['rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key'],
     }
 
