@@ -34,7 +34,7 @@ class jenkins_master {
     }
 
     package { "rpm-build":
-        ensure => "4.4.2.3-34",
+        ensure => "4.4.2.3-34.el5",
     }
 
     group {'jenkins':
