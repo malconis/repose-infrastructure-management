@@ -1,10 +1,10 @@
-class manual_java ($version = '1.7.0_06', $stripped_down = false) {
+class manual_java ($version = '1.7.51', $stripped_down = false) {
 
   $file_version = $version ? {
-    /(.*)_0*(.*)/ => "$1.$2",
+   /jdk-(.*)-linux.*/ => "$1",
   }
 
-  common_utils::download_and_extract {"'http://dev-hudson1.sat.intensive.int:8071/nexus/service/local/artifact/maven/redirect?r=thirdparty&g=com.oracle&a=jdk&v=$file_version&e=tar.gz&c=linux-x64'":
+  common_utils::download_and_extract {"'http://maven.research.rackspacecloud.com/content/repositories/third-party/com/oracle/jdk/$file_version/jdk-$file_version-x64.tar.gz'":
     download_dir         => '/opt',
     archive_name         => "jdk-$file_version-linux-x64.tar.gz",
     exploded_archive_dir => "jdk$version",
