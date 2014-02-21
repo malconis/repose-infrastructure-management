@@ -10,6 +10,7 @@ class jenkins_master {
 
     $jenkins_home = '/var/lib/jenkins'
     $plugins_dir = "$jenkins_home/plugins"
+    $iptables_dir = "/etc/sysconfig"
 
     package {'expect':
         ensure      => 'installed',
@@ -91,15 +92,20 @@ class jenkins_master {
 
     ### Configure Networking
 
-    iptables::allow { 'tcp/22':
-        port     => '22',
-        protocol => 'tcp',
+    file { "$iptables_dir/iptables ":
+        ensure  => present,
+        source  => 'puppet:///modules/jenkins_master/iptables',
+        owner   => root,
+        group   => root,
+        mode    => '0644',
     }
 
-    iptables::allow { 'tcp/8080':
-        port     => '8080',
-        protocol => 'tcp',
+    service { 'iptables':
+        enable => true,
+        ensure => running,
+        subscribe => File['/etc/sysconfig/iptables'],
     }
+
 
     ###### Install Plugins #######
 
