@@ -100,9 +100,10 @@ class jenkins_master {
         mode    => '0644',
     }
 
-    exec { "refresh_cache":
-            command => "iptables restart",
-            path    => "/etc/init.d/",
+    service { 'iptables':
+        enable => true,
+        ensure => running,
+        subscribe => File['/etc/sysconfig/iptables'],
     }
 
 
