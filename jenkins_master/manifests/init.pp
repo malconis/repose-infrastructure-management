@@ -6,7 +6,6 @@ class jenkins_master {
     include manual_maven
     include manual_gradle
     include git
-    require iptables::clean
 
     $jenkins_home = '/var/lib/jenkins'
     $plugins_dir = "$jenkins_home/plugins"
@@ -35,7 +34,7 @@ class jenkins_master {
     }
 
     package { "rpm-build":
-        ensure => "4.4.2.3-34.el5",
+        ensure => "4.8.0-37.el6",
     }
 
     group {'jenkins':
@@ -92,7 +91,7 @@ class jenkins_master {
 
     ### Configure Networking
 
-    file { "$iptables_dir/iptables ":
+    file { "$iptables_dir/iptables":
         ensure  => present,
         source  => 'puppet:///modules/jenkins_master/iptables',
         owner   => root,
@@ -100,9 +99,10 @@ class jenkins_master {
         mode    => '0644',
     }
 
-    exec { "refresh_cache":
-            command => "iptables restart",
-            path    => "/etc/init.d/",
+    service { 'iptables':
+        enable => true,
+        ensure => running,
+        subscribe => File['/etc/sysconfig/iptables'],
     }
 
 
